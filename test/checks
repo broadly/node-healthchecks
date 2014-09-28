@@ -1,0 +1,11 @@
+# Test the response errors
+/error
+
+# Test the response timeout
+/timeout
+
+# Test the response has specific status code
+/status
+
+# Test the response contains expected text
+/expected   foo and bar

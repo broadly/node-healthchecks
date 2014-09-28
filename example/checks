@@ -1,0 +1,14 @@
+# Check the main website
+/                        Get Better Online Reviews
+
+# Check the stylesheet
+/stylesheets/site.css    @font-face
+
+# Check the scripts
+/scripts/site            use strict
+
+# Check a sub-domain
+//embed.broadly.com/525c733fa3af69000000000e/reviews Sonya Z
+
+# Check HTTP access
+http://broadly.com/      Get Better Online Reviews

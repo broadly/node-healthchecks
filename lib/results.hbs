@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html {
+        padding: 20px;
+      }
+      body {
+        font-family: "Helvetica Neue";
+        font-size:  14pt;
+        max-width: 40em;
+        margin: 0 auto;
+      }
+      h1 {
+        border-bottom: 1px solid #ccc;
+      }
+      .passed, .passed a {
+        color: green;
+      }
+      .failed, .failed a {
+        color: red;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <title>Healthchecks</title>
+  </head>
+  <body>
+    {{#if failed}}
+      <section class="failed">
+        <h1>Failed</h1>
+        <ul>
+          {{#each failed}}
+            <li><a href="{{this}}">{{this}}</a></li>
+          {{/each}}
+        </ul>
+      </section>
+    {{/if}}
+
+    <section class="passed">
+      {{#if passed}}
+        <h1>Passed</h1>
+        <ul>
+          {{#each passed}}
+            <li><a href="{{this}}">{{this}}</a></li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <h1>No tests passed</h1>
+      {{/if}}
+    </section>
+  </body>
+</html>
