@@ -9,3 +9,6 @@
 
 # Test the response contains expected text
 /expected   foo and bar
+
+# Used by Dokku, ignored by healthchecks
+WAIT=5

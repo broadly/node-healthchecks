@@ -1,6 +1,6 @@
 const Browser = require('zombie');
 const ms      = require('ms');
-const server  = require('./server');
+const server  = require('./helpers/server');
 
 
 const checksURL = 'http://localhost:3000/_healthchecks';

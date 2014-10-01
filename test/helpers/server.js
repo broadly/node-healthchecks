@@ -1,5 +1,5 @@
 const express     = require('express');
-const healthcheck = require('..');
+const healthcheck = require('../..');
 
 
 const server = express();
@@ -23,7 +23,9 @@ server.ready = function(callback) {
 };
 
 
-server.use('/_healthchecks', healthcheck({ filename: __dirname + '/checks' }));
+server.use('/_healthchecks', healthcheck({
+  filename: __dirname + '/../checks/default'
+}));
 
 // Test the response errors
 server.locals.error = false;
