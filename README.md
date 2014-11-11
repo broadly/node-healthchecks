@@ -1,21 +1,41 @@
 # Healthchecks
 
-Express middleware to run a sequence of health checks, as specified in a check
-file.
+Express middleware that runs health checks on your application.  Allows you to
+manage a list of healthchecks as plain text files, keep them in source control
+next to the application.  Provides a single endpoint you can access from a
+mobile device, or from a monitoring service.
 
-This module allows you to monitor a single endpoint on your server, that checks
-multiple resource.  A single check is often not enough to monitor your
-application, quite common for only some resources to go bad.  On the other hand,
-multiple external checks (e.g. Pingdom) could lead to barrage of alerts when the
-application is down.  They're also harder to manage and not checked into source
-control.
 
-This module allows you to declare all your health checks in one file, which you
-check into source control as part of your application's code base.  You then
-point the check server at a single resource, for a single alert.
+## What and Why?
 
-You can also access that URL from any device and immediately see a list of
-passed and failed checks.  Note that this page is publicly accessible.
+A health check is a simple ping to a resource of your web application that
+checks that your application is up and running, responding to network requests,
+and behaving correctly.
+
+It can be as simple as pinging the home page of a web site, checking that the
+page includes the company's name in the title.
+
+If you have a complex application, there are multiple things that can break
+independently, and so you want a good health coverage by checking multiple
+resources (see [What Should I Check?](#what-should-i-check)).
+
+If your application has got one page that's accessing the database, and another
+page that just storing requests in a queue, you want to check both[1].
+
+Whether you're using a service like Pingdom or internal tool like Nagios, if
+you store your checks there, funny thing is they never get updated when you roll
+out new features.
+
+You want checks to be part of the code base, in source control, right next to
+the application code that's getting checked, where it can be versioned and code
+reviewed.
+
+And that's what this module does.  It lets you write your checks as a plain text
+file that lives in the same repository as your application.
+
+And it gives you a single endpoint that you can open in a browser, to see a list
+of all passed or failed checks.  The same endpoint you can also use with a
+monitoring service like Pingdom or Nagios.
 
 
 ## Checks File
@@ -56,6 +76,12 @@ Only 2xx responses are considered successful (however, redirects are followed).
 
 ## Usage
 
+Install:
+
+```bash
+npm install --save healthchecks
+```
+
 Include the checks file with your web server, then configure the middleware to
 read the checks file, for example:
 
@@ -73,6 +99,9 @@ Now point your monitoring at `http://example.com/_healthchecks`.
 
 You can also open this page with your browser to see a list of passing and
 failed tests.
+
+**Note** this endpoint is publicly accessible.  You can use another middleware
+to add access control, or add this feature and send us a pull request.
 
 You can initialize the middleware with the checks file name, or with an object
 containing the following options:
