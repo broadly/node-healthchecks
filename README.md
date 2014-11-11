@@ -129,27 +129,30 @@ server.use('/_healthchecks', healthchecks(options);
 >
 > -- Murphy's law
 
-If you have static and dynamic pages, you want to check one of each.
+If two parts of your application can fail independently, you want to check both.
 
-If different pages use different database servers (e.g. relational and content),
-you want to check one of each.
+If you have static and dynamic page, you want to check both.
 
-If some pages use a caching servers, you want to check one of these.
+If different pages use different database servers, you want to check them all.
 
-If some pages use a 3rd party API, you want to check for one of these.
+If some page uses a caching servers, you want to check that as well.
 
-If pages are composed of multiple independent modules, e.g. the layout and body
-are managed in different layers of the application, write one check for each.
+If another page uses a 3rd party API, also check that.
 
-In addition to pages, check stylesheets, client-side scripts, images and other
-assets are served correctly.
+If your page is composed of multiple modules that can fail independently (say
+shopping cart and product list), you want to check each module.
 
-If you pre-process any of these, check they exist and also contain some output.
+If something can fail that's not an HTML page, you want to check that as well.
 
-Even if they're served from a 3rd party CDN, check them.
+Stylesheets? Check.  Client-side scripts?  Checks.  Images?  Checks.
 
-If your application dynamically creates links to CSS/JS, check those links
-actually point to the right place.
+If they are pre-processed, you want to check what was generated.
 
-You can have too many checks, but most likely you don't have enough!
+If it's served by a 3rd party CDN, don't skip this check.
+
+If your application dynamically generates links (to pages, CSS, JS), check those
+as well.
+
+You can have too many checks, but most likely your problem is you don't have
+enough!
 
