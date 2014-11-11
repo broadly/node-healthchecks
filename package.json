@@ -1,13 +1,13 @@
 {
-  "name": "@broadly/healthcheck",
+  "name": "healthchecks",
   "version": "1.0.0",
   "scripts": {
     "test": "mocha"
   },
   "engines": {
-    "node": "0.10.32"
+    "node": "0.10.x"
   },
-  "main": "lib/healthcheck",
+  "main": "lib/healthchecks",
   "dependencies": {
     "bluebird": "^2.3.11",
     "debug": "^2.1.0",
@@ -20,6 +20,6 @@
     "mocha": "^2.0.1",
     "zombie": "^2.1.1"
   },
-  "homepage": "https://github.com/broadly/healthcheck",
+  "homepage": "https://github.com/broadly/healthchecks",
   "private": true
 }

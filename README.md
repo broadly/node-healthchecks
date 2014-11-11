@@ -20,13 +20,13 @@ server.
 For example:
 
 ```javascript
-const healthcheck = require('healthcheck');
+const healthchecks = require('healthchecks');
 
 // This file contains all the checks
 const CHECKS_FILE = __dirname + '/checks';
 
 // Mount the middleware at /_healthchecks
-server.use('/_healthchecks', healthcheck({ filename: CHECKS_FILE }));
+server.use('/_healthchecks', healthchecks(CHECKS_FILE));
 ```
 
 Now point your monitoring at `http://example.com/_healthchecks`.
@@ -70,4 +70,26 @@ https://admin.example.com           Admin Dashboard
 The expected content is matched literally against the body of the HTTP response.
 4xx and 5xx status codes cause the check to fail.  In fact, only 2xx responses
 are considered successful.
+
+
+## Options
+
+You can initialize the middleware with the checks file name, or with an object
+containing the following options:
+
+`filename` -- The name of the checks file
+`timeout`  -- Timeout slow responses
+
+You can specify the timeout in milliseconds or as a string, e.g. "3s" for 3
+seconds.
+
+For example:
+
+```javascript
+const options = {
+  filename: CHECKS_FILE,
+  timeout:  '5s'     // 5 seconds, can also pass duration in milliseconds
+};
+server.use('/_healthchecks', healthchecks(options);
+```
 
