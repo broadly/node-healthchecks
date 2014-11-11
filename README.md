@@ -156,3 +156,8 @@ as well.
 You can have too many checks, but most likely your problem is you don't have
 enough!
 
+
+## License
+
+[MIT License](LICENSE) Copyright (c) 2014 Broadly Inc
+
