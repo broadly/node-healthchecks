@@ -107,6 +107,7 @@ You can initialize the middleware with the checks file name, or with an object
 containing the following options:
 
 `filename` -- The name of the checks file
+`onfailed` -- Called with array of failed checkes
 `timeout`  -- Timeout slow responses
 
 You can specify the timeout in milliseconds or as a string, e.g. "3s" for 3
@@ -116,8 +117,11 @@ For example:
 
 ```javascript
 const options = {
-  filename: CHECKS_FILE,
-  timeout:  '5s'     // 5 seconds, can also pass duration in milliseconds
+  filename:   CHECKS_FILE,
+  timeout:    '5s',    // 5 seconds, can also pass duration in milliseconds
+  onfailed:   function(urls) {
+    log('The following checks failed:\n', urls.join('\n'));
+  }
 };
 server.use('/_healthchecks', healthchecks(options);
 ```
