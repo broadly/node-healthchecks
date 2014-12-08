@@ -20,9 +20,9 @@ describe('User', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'Passed');
         browser.assert.text('.passed li:nth-of-type(1)', 'http://localhost:3000/error');
-        browser.assert.text('.passed li:nth-of-type(2)', 'http://localhost:3000/timeout');
+        browser.assert.text('.passed li:nth-of-type(2)', 'http://localhost:3000/expected');
         browser.assert.text('.passed li:nth-of-type(3)', 'http://localhost:3000/status');
-        browser.assert.text('.passed li:nth-of-type(4)', 'http://localhost:3000/expected');
+        browser.assert.text('.passed li:nth-of-type(4)', 'http://localhost:3000/timeout');
         done();
       });
     });

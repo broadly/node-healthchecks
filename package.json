@@ -12,6 +12,7 @@
     "bluebird": "^2.3.11",
     "debug": "^2.1.0",
     "handlebars": "^2.0.0",
+    "lodash": "^2.4.1",
     "ms": "^0.7.0",
     "request": "^2.49.0"
   },
@@ -27,6 +28,9 @@
       "type": "MIT",
       "url": "https://github.com/broadly/node-healthchecks/blob/master/LICENSE"
     }
-  ]
-
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/broadly/node-healthchecks"
+  }
 }
