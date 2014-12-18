@@ -22,7 +22,7 @@
     "zombie": "^2.4.0"
   },
   "description": "Express middleware that runs health checks on your application",
-  "homepage": "https://github.com/broadly/node-healthchecks",
+  "homepage": "https://www.npmjs.com/package/healthchecks",
   "licenses": [
     {
       "type": "MIT",
