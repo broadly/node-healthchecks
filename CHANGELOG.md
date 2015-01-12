@@ -1,5 +1,7 @@
 ## Version 1.2.1  2015-01-12
 
+CHANGED consolidate multiple checks for the same URL
+
 FIXED did not accept timeout option
 
 

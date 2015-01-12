@@ -74,7 +74,7 @@ describe('Runs checks', function() {
         assert.equal(failed[0].url, 'http://localhost:3000/timeout');
         assert.equal(failed[0].reason, 'timeout');
 
-        assert(failed[0].error);
+        assert(!failed[0].error);
         assert(failed[0].timeout);
         assert(!failed[0].statusCode);
         assert(!failed[0].body);
