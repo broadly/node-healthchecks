@@ -24,7 +24,10 @@ server.ready = function(callback) {
 
 
 server.use('/_healthchecks', healthchecks({
-  filename: __dirname + '/../checks/default'
+  filename: __dirname + '/../checks/default',
+  onFailed: function(failed) {
+    server.emit('failed', failed);
+  }
 }));
 
 // Test the response errors

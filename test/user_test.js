@@ -6,7 +6,7 @@ const server  = require('./helpers/server');
 const checksURL = 'http://localhost:3000/_healthchecks';
 
 
-describe('User', function() {
+describe('User runs checks', function() {
 
   const browser = Browser.create();
 
@@ -14,7 +14,7 @@ describe('User', function() {
     server.ready(done);
   });
 
-  describe('runs checks, all healthy', function() {
+  describe('all healthy', function() {
 
     it('should see a list of passing tests', function(done) {
       browser.visit(checksURL, function() {
@@ -29,7 +29,7 @@ describe('User', function() {
   });
 
 
-  describe('runs checks, URL not accessible', function() {
+  describe('URL not accessible', function() {
     before(function() {
       server.locals.error = true;
     });
@@ -38,7 +38,7 @@ describe('User', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/error');
+        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/error => error');
         browser.assert.elements('.passed li', 3);
         done();
       });
@@ -50,7 +50,7 @@ describe('User', function() {
   });
 
 
-  describe('runs checks, response times out', function() {
+  describe('response times out', function() {
     before(function() {
       server.locals.timeout = ms('3s');
     });
@@ -61,7 +61,7 @@ describe('User', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/timeout');
+        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/timeout => timeout');
         browser.assert.elements('.passed li', 3);
         done();
       });
@@ -73,7 +73,7 @@ describe('User', function() {
   });
 
 
-  describe('runs checks, response is 400', function() {
+  describe('response is 400', function() {
     before(function() {
       server.locals.status = 400;
     });
@@ -82,7 +82,7 @@ describe('User', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/status');
+        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/status => statusCode');
         browser.assert.elements('.passed li', 3);
         done();
       });
@@ -94,7 +94,7 @@ describe('User', function() {
   });
 
 
-  describe('runs checks, response missing expected content', function() {
+  describe('response missing expected content', function() {
     before(function() {
       server.locals.expected = 'Expected to see foo and also bar';
     });
@@ -103,7 +103,7 @@ describe('User', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/expected');
+        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/expected => body');
         browser.assert.elements('.passed li', 3);
         done();
       });

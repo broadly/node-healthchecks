@@ -1,3 +1,19 @@
+## Version 1.2.0  2015-01-11
+
+CHANGED options `onfailed` replaced with `onFailed` which accepts an array of
+check results (not just URLs).
+
+Each failed check reported to `onFailed` is an object with the following
+properties:
+
+`url`         -- The absolute URL
+`reason`      -- One of 'error', 'timeout', 'statusCode' or 'body'
+`error`       -- Connection or timeout error
+`timeout`     -- True if failed due to timeout
+`statusCode`  -- HTTP status code (if no error)
+`body`        -- Response body
+
+
 ## Version 1.1.1  2014-12-08
 
 CHANGED only show each URL once, and sort alphabetically

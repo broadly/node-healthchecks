@@ -110,11 +110,25 @@ You can initialize the middleware with the checks file name, or with an object
 containing the following options:
 
 `filename` -- The name of the checks file
-`onfailed` -- Called with array of failed checkes
+`onFailed` -- Called with array of failed checks
 `timeout`  -- Timeout slow responses
 
 You can specify the timeout in milliseconds or as a string, e.g. "3s" for 3
 seconds.
+
+Each failed check reported to `onFailed` is an object with the following
+properties:
+
+`url`         -- The absolute URL
+`reason`      -- One of 'error', 'timeout', 'statusCode' or 'body'
+`error`       -- Connection or timeout error
+`timeout`     -- True if failed due to timeout
+`statusCode`  -- HTTP status code (if no error)
+`body`        -- Response body
+
+For convenience, the value of the `reason` property is the name of one of the
+other properties.  Also, when you call `toString()` you get a URL with the
+reason, e.g. "http://example.com => statusCode".
 
 For example:
 
@@ -122,8 +136,12 @@ For example:
 const options = {
   filename:   CHECKS_FILE,
   timeout:    '5s',    // 5 seconds, can also pass duration in milliseconds
-  onfailed:   function(urls) {
-    log('The following checks failed:\n', urls.join('\n'));
+  onFailed:   function(checks) {
+    checks.forEach(function(check) {
+      log('The following check failed:', check.url, 'reason:', check.reason);
+      // ... or ...
+      log('The following check failed: %s', check);
+    });
   }
 };
 server.use('/_healthchecks', healthchecks(options);

@@ -34,7 +34,7 @@
         <h1>Failed</h1>
         <ul>
           {{#each failed}}
-            <li><a href="{{this}}">{{this}}</a></li>
+            <li><a href="{{url}}">{{this}}</a></li>
           {{/each}}
         </ul>
       </section>
@@ -45,7 +45,7 @@
         <h1>Passed</h1>
         <ul>
           {{#each passed}}
-            <li><a href="{{this}}">{{this}}</a></li>
+            <li><a href="{{url}}">{{this}}</a></li>
           {{/each}}
         </ul>
       {{else}}
