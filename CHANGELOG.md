@@ -1,3 +1,8 @@
+## Version 1.2.1  2015-01-12
+
+FIXED did not accept timeout option
+
+
 ## Version 1.2.0  2015-01-11
 
 CHANGED options `onfailed` replaced with `onFailed` which accepts an array of
