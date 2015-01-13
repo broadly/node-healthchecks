@@ -8,7 +8,10 @@
 /status
 
 # Test the response contains expected text
+# And that multiple check results are consolidated
 /expected   foo and bar
+/expected   foo
+/expected   bar
 
 # Used by Dokku, ignored by healthchecks
 WAIT=5

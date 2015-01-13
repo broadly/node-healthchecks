@@ -1,3 +1,8 @@
+## Version 1.2.2  2015-01-12
+
+FIXED verify result page shows consolidated results
+
+
 ## Version 1.2.1  2015-01-12
 
 CHANGED consolidate multiple checks for the same URL
