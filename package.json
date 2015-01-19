@@ -1,18 +1,15 @@
 {
   "name": "healthchecks",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "scripts": {
     "test": "mocha"
-  },
-  "engines": {
-    "node": "0.10.x"
   },
   "main": "lib/healthchecks",
   "dependencies": {
     "bluebird": "^2.0",
     "debug": "^2.0",
-    "handlebars": "^2.0",
-    "lodash": "^2.0",
+    "handlebars": "^3.0",
+    "lodash": "^3.1",
     "ms": "^0.7.0",
     "request": "^2.0"
   },

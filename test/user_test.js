@@ -19,10 +19,10 @@ describe('User runs checks', function() {
     it('should see a list of passing tests', function(done) {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'Passed');
-        browser.assert.text('.passed li:nth-of-type(1)', 'http://localhost:3000/error');
-        browser.assert.text('.passed li:nth-of-type(2)', 'http://localhost:3000/expected');
-        browser.assert.text('.passed li:nth-of-type(3)', 'http://localhost:3000/status');
-        browser.assert.text('.passed li:nth-of-type(4)', 'http://localhost:3000/timeout');
+        browser.assert.text('.passed li:nth-of-type(1)', /http:\/\/localhost:3000\/error \d+ms/);
+        browser.assert.text('.passed li:nth-of-type(2)', /http:\/\/localhost:3000\/expected \d+ms/);
+        browser.assert.text('.passed li:nth-of-type(3)', /http:\/\/localhost:3000\/status \d+ms/);
+        browser.assert.text('.passed li:nth-of-type(4)', /http:\/\/localhost:3000\/timeout \d+ms/);
         done();
       });
     });
@@ -38,7 +38,7 @@ describe('User runs checks', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/error => socket hang up');
+        browser.assert.text('.failed li:nth-of-type(1)', /http:\/\/localhost:3000\/error => socket hang up \d+ms/);
         browser.assert.elements('.passed li', 3);
         done();
       });
@@ -61,7 +61,7 @@ describe('User runs checks', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/timeout => timeout');
+        browser.assert.text('.failed li:nth-of-type(1)', /http:\/\/localhost:3000\/timeout => timeout \d+ms/);
         browser.assert.elements('.passed li', 3);
         done();
       });
@@ -82,7 +82,7 @@ describe('User runs checks', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/status => 400');
+        browser.assert.text('.failed li:nth-of-type(1)', /http:\/\/localhost:3000\/status => 400 \d+ms/);
         browser.assert.elements('.passed li', 3);
         done();
       });
@@ -103,7 +103,7 @@ describe('User runs checks', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', 'http://localhost:3000/expected => body');
+        browser.assert.text('.failed li:nth-of-type(1)', /http:\/\/localhost:3000\/expected => body \d+ms/);
         browser.assert.elements('.passed li', 3);
         done();
       });

@@ -1,3 +1,8 @@
+## Version 1.2.4  2015-02-11
+
+ADDED show request time on page
+
+
 ## Version 1.2.3  2015-01-19
 
 CHANGED outcome.toString() no shows error message or status code
