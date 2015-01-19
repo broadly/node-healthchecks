@@ -1,3 +1,8 @@
+## Version 1.2.3  2015-01-19
+
+CHANGED outcome.toString() no shows error message or status code
+
+
 ## Version 1.2.2  2015-01-12
 
 FIXED verify result page shows consolidated results

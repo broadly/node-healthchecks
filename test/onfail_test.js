@@ -50,6 +50,8 @@ describe('Runs checks', function() {
         assert(!failed[0].timeout);
         assert(!failed[0].statusCode);
         assert(!failed[0].body);
+
+        assert.equal(failed[0].toString(), 'http://localhost:3000/error => socket hang up');
         done();
       });
       request(checksURL);
@@ -78,6 +80,8 @@ describe('Runs checks', function() {
         assert(failed[0].timeout);
         assert(!failed[0].statusCode);
         assert(!failed[0].body);
+
+        assert.equal(failed[0].toString(), 'http://localhost:3000/timeout => timeout');
         done();
       });
 
@@ -105,6 +109,8 @@ describe('Runs checks', function() {
         assert(!failed[0].timeout);
         assert.equal(failed[0].statusCode, 400);
         assert(!failed[0].body);
+
+        assert.equal(failed[0].toString(), 'http://localhost:3000/status => 400');
         done();
       });
       request(checksURL);
@@ -131,6 +137,8 @@ describe('Runs checks', function() {
         assert(!failed[0].timeout);
         assert.equal(failed[0].statusCode, 200);
         assert.equal(failed[0].body, 'Expected to see foo and also bar');
+
+        assert.equal(failed[0].toString(), 'http://localhost:3000/expected => body');
         done();
       });
       request(checksURL);
