@@ -1,6 +1,11 @@
+## Version 1.2.5  2015-02-11
+
+CHANGED better styling for elapsed time
+
+
 ## Version 1.2.4  2015-02-11
 
-ADDED show request time on page
+ADDED show request elapsed time
 
 
 ## Version 1.2.3  2015-01-19

@@ -14,11 +14,14 @@
       h1 {
         border-bottom: 1px solid #ccc;
       }
-      .passed, .passed a {
+      .passed a {
         color: green;
       }
-      .failed, .failed a {
+      .failed a {
         color: red;
+      }
+      .elapsed {
+        color: #888;
       }
       ul {
         list-style: none;
@@ -34,7 +37,7 @@
         <h1>Failed</h1>
         <ul>
           {{#each failed}}
-            <li><a href="{{url}}">{{this}}</a> {{elapsed}}ms</li>
+            <li><a href="{{url}}">{{this}}</a> <span class="elapsed">{{ms elapsed}}</span</li>
           {{/each}}
         </ul>
       </section>
@@ -45,7 +48,7 @@
         <h1>Passed</h1>
         <ul>
           {{#each passed}}
-            <li><a href="{{url}}">{{this}}</a> {{elapsed}}ms</li>
+            <li><a href="{{url}}">{{this}}</a> <span class="elapsed">{{ms elapsed}}</span</li>
           {{/each}}
         </ul>
       {{else}}

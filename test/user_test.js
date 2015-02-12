@@ -38,7 +38,7 @@ describe('User runs checks', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', /http:\/\/localhost:3000\/error => socket hang up \d+ms/);
+        browser.assert.text('.failed li:nth-of-type(1)', /^http:\/\/localhost:3000\/error => socket hang up \d+ms$/);
         browser.assert.elements('.passed li', 3);
         done();
       });
@@ -61,7 +61,7 @@ describe('User runs checks', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', /http:\/\/localhost:3000\/timeout => timeout \d+ms/);
+        browser.assert.text('.failed li:nth-of-type(1)', /^http:\/\/localhost:3000\/timeout => timeout \d+s$/);
         browser.assert.elements('.passed li', 3);
         done();
       });
@@ -82,7 +82,7 @@ describe('User runs checks', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', /http:\/\/localhost:3000\/status => 400 \d+ms/);
+        browser.assert.text('.failed li:nth-of-type(1)', /^http:\/\/localhost:3000\/status => 400 \d+ms$/);
         browser.assert.elements('.passed li', 3);
         done();
       });
@@ -103,7 +103,7 @@ describe('User runs checks', function() {
       browser.visit(checksURL, function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
-        browser.assert.text('.failed li:nth-of-type(1)', /http:\/\/localhost:3000\/expected => body \d+ms/);
+        browser.assert.text('.failed li:nth-of-type(1)', /^http:\/\/localhost:3000\/expected => body \d+ms$/);
         browser.assert.elements('.passed li', 3);
         done();
       });
