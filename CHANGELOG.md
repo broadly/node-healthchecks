@@ -1,3 +1,8 @@
+## Version 1.3.1  2015-03-23
+
+ADDED send user-agent header, some servers require this
+
+
 ## Version 1.3.0  2015-03-23
 
 CHANGED module can be used as Node request handler, does not need Express
