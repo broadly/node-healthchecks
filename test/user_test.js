@@ -8,7 +8,7 @@ const checksURL = 'http://localhost:3000/_healthchecks';
 
 describe('User runs checks', function() {
 
-  const browser = Browser.create();
+  const browser = new Browser();
 
   before(function(done) {
     server.ready(done);

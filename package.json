@@ -9,14 +9,14 @@
     "bluebird": "^2.0",
     "debug": "^2.0",
     "handlebars": "^3.0",
-    "lodash": "^3.1",
+    "lodash": "^3.0",
     "ms": "^0.7.0",
     "request": "^2.0"
   },
   "devDependencies": {
-    "express": "^4.10.4",
-    "mocha": "^2.0.1",
-    "zombie": "^2.4.0"
+    "express": "^4.12.3",
+    "mocha": "^2.2.1",
+    "zombie": "^3.1.0"
   },
   "description": "Express middleware that runs health checks on your application",
   "homepage": "https://www.npmjs.com/package/healthchecks",
