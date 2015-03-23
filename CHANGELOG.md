@@ -1,3 +1,8 @@
+## Version 1.3.0  2015-03-23
+
+CHANGED module can be used as Node request handler, does not need Express
+
+
 ## Version 1.2.5  2015-02-11
 
 CHANGED better styling for elapsed time
