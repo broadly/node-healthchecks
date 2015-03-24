@@ -1,3 +1,7 @@
+## Version 1.4.0  2015-03-24
+
+CHANGED run checks against localAddress/localPort
+
 ## Version 1.3.1  2015-03-23
 
 ADDED send user-agent header, some servers require this
