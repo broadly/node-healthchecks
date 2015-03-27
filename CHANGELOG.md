@@ -1,6 +1,12 @@
+## Version 1.4.1  2015-03-27
+
+FIXED maintain the same connection protocol (in addition to IP/port)
+
+
 ## Version 1.4.0  2015-03-24
 
 CHANGED run checks against localAddress/localPort
+
 
 ## Version 1.3.1  2015-03-23
 
