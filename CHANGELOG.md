@@ -1,3 +1,8 @@
+## Version 1.4.2  2015-03-27
+
+FIXED connection.encrypted is now socket.encrypted (0.12/io.js)
+
+
 ## Version 1.4.1  2015-03-27
 
 FIXED maintain the same connection protocol (in addition to IP/port)
