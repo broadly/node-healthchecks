@@ -1,5 +1,6 @@
 const assert        = require('assert');
 const healthchecks  = require('..');
+const Path          = require('path');
 const request       = require('request');
 const server        = require('./helpers/server');
 
@@ -7,7 +8,8 @@ const server        = require('./helpers/server');
 describe('Empty checks file', function() {
 
   before(function(done) {
-    server.use('/_healthchecks.empty', healthchecks(__dirname + '/checks/empty'));
+    const filename = Path.join(__dirname, 'checks/empty');
+    server.use('/_healthchecks.empty', healthchecks(filename));
     server.ready(done);
   });
 
@@ -26,7 +28,8 @@ describe('Missing checks file', function() {
 
   it('should fail setting up middleware', function(done) {
     assert.throws(function() {
-      server.use('/_healthchecks.invalid', healthchecks(__dirname + '/checks/invalid'));
+      const filename = Path.join(__dirname, 'checks/invalid');
+      server.use('/_healthchecks.invalid', healthchecks(filename));
     });
     done();
   });

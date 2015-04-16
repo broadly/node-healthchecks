@@ -1,5 +1,6 @@
-const express     = require('express');
-const healthchecks = require('../..');
+const express       = require('express');
+const healthchecks  = require('../..');
+const Path          = require('path');
 
 
 const server = express();
@@ -12,19 +13,18 @@ module.exports = server;
 // server is ready to receive requests.  Server only started once.
 var listening = false;
 server.ready = function(callback) {
-  if (listening) {
+  if (listening)
     setImmediate(callback);
-  } else {
+  else
     server.listen(3000, function() {
       listening = true;
       callback();
     });
-  }
 };
 
 
 server.use('/_healthchecks', healthchecks({
-  filename: __dirname + '/../checks/default',
+  filename: Path.join(__dirname, '../checks/default'),
   onFailed: function(failed) {
     server.emit('failed', failed);
   }
