@@ -14,9 +14,10 @@
     "request": "^2.0"
   },
   "devDependencies": {
+    "eslint": "^0.19.0",
     "express": "^4.12.3",
-    "mocha": "^2.2.1",
-    "zombie": "^3.1.0"
+    "mocha": "^2.2.4",
+    "zombie": "^4.0.7"
   },
   "description": "Express middleware that runs health checks on your application",
   "homepage": "https://www.npmjs.com/package/healthchecks",
