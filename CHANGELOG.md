@@ -1,3 +1,8 @@
+## Version 1.4.4  2015-04-16
+
+CHANGED show response time in seconds, 2 decimal places
+
+
 ## Version 1.4.3  2015-03-27
 
 FIXED debug logging check requests

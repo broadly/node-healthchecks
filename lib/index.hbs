@@ -37,7 +37,7 @@
         <h1>Failed</h1>
         <ul>
           {{#each failed}}
-            <li><a href="{{url}}">{{this}}</a> <span class="elapsed">{{ms elapsed}}</span</li>
+            <li><a href="{{url}}">{{this}}</a> <span class="elapsed">{{seconds elapsed}} sec</span></li>
           {{/each}}
         </ul>
       </section>
@@ -48,7 +48,7 @@
         <h1>Passed</h1>
         <ul>
           {{#each passed}}
-            <li><a href="{{url}}">{{this}}</a> <span class="elapsed">{{ms elapsed}}</span</li>
+            <li><a href="{{url}}">{{this}}</a> <span class="elapsed">{{seconds elapsed}} sec</span></li>
           {{/each}}
         </ul>
       {{else}}
