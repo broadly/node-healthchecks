@@ -1,6 +1,6 @@
 {
   "name": "healthchecks",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "scripts": {
     "test": "mocha"
   },
