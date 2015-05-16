@@ -1,3 +1,8 @@
+## Version 1.5.0  2015-05-16
+
+CHANGED show response time in high resolution (including nanoseconds)
+
+
 ## Version 1.4.4  2015-04-16
 
 CHANGED show response time in seconds, 2 decimal places
