@@ -43,7 +43,7 @@ describe('Runs checks', function() {
     it('should be notified of a failed test', function(done) {
       server.once('failed', function(failed) {
         assert.equal(failed.length, 1);
-        assert.equal(failed[0].url, 'http://localhost/error');
+        assert.equal(failed[0].url, '/error');
         assert.equal(failed[0].reason, 'error');
 
         assert(failed[0].error);
@@ -51,7 +51,7 @@ describe('Runs checks', function() {
         assert(!failed[0].statusCode);
         assert(!failed[0].body);
 
-        assert.equal(failed[0].toString(), 'http://localhost/error => socket hang up');
+        assert.equal(failed[0].toString(), '/error => socket hang up');
         done();
       });
       request(checksURL);
@@ -73,7 +73,7 @@ describe('Runs checks', function() {
 
       server.once('failed', function(failed) {
         assert.equal(failed.length, 1);
-        assert.equal(failed[0].url, 'http://localhost/timeout');
+        assert.equal(failed[0].url, '/timeout');
         assert.equal(failed[0].reason, 'timeout');
 
         assert(!failed[0].error);
@@ -81,7 +81,7 @@ describe('Runs checks', function() {
         assert(!failed[0].statusCode);
         assert(!failed[0].body);
 
-        assert.equal(failed[0].toString(), 'http://localhost/timeout => timeout');
+        assert.equal(failed[0].toString(), '/timeout => timeout');
         done();
       });
 
@@ -102,7 +102,7 @@ describe('Runs checks', function() {
     it('should be notified of a failed test', function(done) {
       server.once('failed', function(failed) {
         assert.equal(failed.length, 1);
-        assert.equal(failed[0].url, 'http://localhost/status');
+        assert.equal(failed[0].url, '/status');
         assert.equal(failed[0].reason, 'statusCode');
 
         assert(!failed[0].error);
@@ -110,7 +110,7 @@ describe('Runs checks', function() {
         assert.equal(failed[0].statusCode, 400);
         assert(!failed[0].body);
 
-        assert.equal(failed[0].toString(), 'http://localhost/status => 400');
+        assert.equal(failed[0].toString(), '/status => 400');
         done();
       });
       request(checksURL);
@@ -130,7 +130,7 @@ describe('Runs checks', function() {
     it('should be notified of a failed test', function(done) {
       server.once('failed', function(failed) {
         assert.equal(failed.length, 1);
-        assert.equal(failed[0].url, 'http://localhost/expected');
+        assert.equal(failed[0].url, '/expected');
         assert.equal(failed[0].reason, 'body');
 
         assert(!failed[0].error);
@@ -138,7 +138,7 @@ describe('Runs checks', function() {
         assert.equal(failed[0].statusCode, 200);
         assert.equal(failed[0].body, 'Expected to see foo and also bar');
 
-        assert.equal(failed[0].toString(), 'http://localhost/expected => body');
+        assert.equal(failed[0].toString(), '/expected => body');
         done();
       });
       request(checksURL);
