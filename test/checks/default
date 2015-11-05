@@ -13,5 +13,8 @@
 /expected   foo
 /expected   bar
 
+# Test a redirect
+/redirect
+
 # Used by Dokku, ignored by healthchecks
 WAIT=5

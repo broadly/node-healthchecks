@@ -58,3 +58,12 @@ server.locals.expected = 'Expected to see foo and bar';
 server.get('/expected', function(req, res) {
   res.send(server.locals.expected);
 });
+
+// Test redirects
+server.locals.redirect = false;
+server.get('/redirect', function(req, res) {
+  if (server.locals.redirect)
+    res.redirect(server.locals.redirect);
+  else
+    res.status(204).send('');
+});
