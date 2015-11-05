@@ -1,3 +1,8 @@
+## (unreleased)
+
+FIXED follow redirects when performing checks
+
+
 ## Version 1.5.0  2015-05-16
 
 CHANGED show response time in high resolution (including nanoseconds)
