@@ -5,9 +5,6 @@ manage a list of healthchecks as plain text files, keep them in source control
 next to the application.  Provides a single endpoint you can access from a
 mobile device, or from a monitoring service.
 
-![](http://b.adge.me/npm/v/healthchecks.svg)
-![](http://b.adge.me/:license-MIT-green.svg)
-
 
 ## What and Why?
 
