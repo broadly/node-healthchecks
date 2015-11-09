@@ -2,6 +2,8 @@
 
 FIXED follow redirects when performing checks
 
+ADDED skip SSL certificate validation via `strictSSL` option
+
 
 ## Version 1.5.0  2015-05-16
 
