@@ -1,4 +1,4 @@
-## Version 1.5.1  2015-11-09
+## (unreleased)
 
 FIXED follow redirects when performing checks
 
