@@ -99,4 +99,22 @@ describe('Pingdom run checks', function() {
   });
 
 
+  describe('subdomain not accessible', function() {
+    before(function() {
+      server.locals.subdomain = '';
+    });
+
+    it('should receive response with status 500', function(done) {
+      request(checksURL, function(error, response) {
+        assert.equal(response.statusCode, 500);
+        done();
+      });
+    });
+
+    after(function() {
+      server.locals.subdomain = 'admin';
+    });
+  });
+
+
 });
