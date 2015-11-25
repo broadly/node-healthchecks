@@ -63,7 +63,7 @@ describe('User runs checks', function() {
           browser.assert.text('h1', 'FailedPassed');
           browser.assert.elements('.failed li', 2);
           browser.assert.text('.failed li:nth-of-type(2)', /redirect => socket hang up \d[.\d]* ms/);
-          browser.assert.elements('.passed li', 3);
+          browser.assert.elements('.passed li', 4);
           done();
         });
       });
@@ -86,7 +86,7 @@ describe('User runs checks', function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
         browser.assert.text('.failed li:nth-of-type(1)', /error => socket hang up \d[.\d]* ms/);
-        browser.assert.elements('.passed li', 4);
+        browser.assert.elements('.passed li', 5);
         done();
       });
     });
@@ -109,7 +109,7 @@ describe('User runs checks', function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
         browser.assert.text('.failed li:nth-of-type(1)', /timeout => timeout \d[.\d]* s/);
-        browser.assert.elements('.passed li', 4);
+        browser.assert.elements('.passed li', 5);
         done();
       });
     });
@@ -130,7 +130,7 @@ describe('User runs checks', function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
         browser.assert.text('.failed li:nth-of-type(1)', /status => 400 \d[.\d]* ms/);
-        browser.assert.elements('.passed li', 4);
+        browser.assert.elements('.passed li', 5);
         done();
       });
     });
@@ -151,7 +151,7 @@ describe('User runs checks', function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
         browser.assert.text('.failed li:nth-of-type(1)', /expected => body \d[.\d]* ms/);
-        browser.assert.elements('.passed li', 4);
+        browser.assert.elements('.passed li', 5);
         done();
       });
     });
@@ -161,6 +161,26 @@ describe('User runs checks', function() {
     });
   });
 
+
+  describe('subdomain not accessible', function() {
+    before(function() {
+      server.locals.subdomain = '';
+    });
+
+    it('should see a failed test', function(done) {
+      browser.visit(checksURL, function() {
+        browser.assert.text('h1', 'FailedPassed');
+        browser.assert.elements('.failed li', 1);
+        browser.assert.text('.failed li:nth-of-type(1)', /http:\/\/admin.localhost:3000\/subdomain => 404 \d[.\d]* ms/);
+        browser.assert.elements('.passed li', 5);
+        done();
+      });
+    });
+
+    after(function() {
+      server.locals.subdomain = 'admin';
+    });
+  });
 
 });
 

@@ -150,6 +150,32 @@ describe('Runs checks', function() {
   });
 
 
+  describe('subdomain not accessible', function() {
+    before(function() {
+      server.locals.subdomain = '';
+    });
+
+    it('should be notified of a failed test', function(done) {
+      server.once('failed', function(failed) {
+        assert.equal(failed[0].url,    'http://admin.localhost:3000/subdomain');
+        assert.equal(failed[0].reason, 'statusCode');
+
+        assert(!failed[0].error);
+        assert(!failed[0].timeout);
+        assert.equal(failed[0].statusCode, 404);
+
+        assert.equal(failed[0].toString(), 'http://admin.localhost:3000/subdomain => 404');
+        done();
+      });
+      request(checksURL);
+    });
+
+    after(function() {
+      server.locals.subdomain = 'admin';
+    });
+  });
+
+
 });
 
 
