@@ -16,5 +16,8 @@
 # Test a redirect
 /redirect
 
+# Test a subdomain
+//admin.localhost/subdomain
+
 # Used by Dokku, ignored by healthchecks
 WAIT=5

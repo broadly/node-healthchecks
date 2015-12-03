@@ -12,13 +12,13 @@
     "debug": "^2.2.0",
     "handlebars": "^3.0",
     "ms": "^0.7.1",
-    "pretty-hrtime": "^1.0.0",
-    "request": "^2.0"
+    "pretty-hrtime": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^0.21",
     "express": "^4.12",
     "mocha": "^2.2",
+    "request": "^2.67.0",
     "zombie": "^4.0"
   },
   "description": "Express middleware that runs health checks on your application",
