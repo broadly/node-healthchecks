@@ -67,3 +67,14 @@ server.get('/redirect', function(req, res) {
   else
     res.status(204).send('');
 });
+
+// Test subdomains
+server.locals.subdomain = 'admin';
+server.get('/subdomain', function(req, res) {
+  const subdomain = req.headers.host.split('.')[0];
+
+  if (subdomain === server.locals.subdomain)
+    res.status(200).send('');
+  else
+    res.status(404).send('');
+});
