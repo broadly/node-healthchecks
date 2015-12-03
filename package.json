@@ -12,8 +12,7 @@
     "debug": "^2.2.0",
     "handlebars": "^3.0",
     "ms": "^0.7.1",
-    "pretty-hrtime": "^1.0.0",
-    "request": "^2.0"
+    "pretty-hrtime": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^0.21",
