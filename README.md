@@ -109,7 +109,6 @@ containing the following options:
 * `filename`  -- The name of the checks file
 * `onFailed`  -- Called with array of failed checks
 * `timeout`   -- Timeout slow responses
-* `strictSSL` -- Defaults to true, false allows use of self-signed certificates for development
 
 You can specify the timeout in milliseconds or as a string, e.g. "3s" for 3
 seconds.
@@ -134,7 +133,6 @@ For example:
 const options = {
   filename:   CHECKS_FILE,
   timeout:    '5s',    // 5 seconds, can also pass duration in milliseconds
-  strictSSL:  (process.env.NODE_ENV === 'production') ? true : false,
   onFailed:   function(checks) {
     checks.forEach(function(check) {
       log('The following check failed:', check.url, 'reason:', check.reason);
