@@ -93,6 +93,63 @@ describe('User runs checks', function() {
         server.locals.redirect = false;
       });
     });
+
+    describe('to a subdomain', function() {
+      before(function() {
+        server.locals.redirect = 'https://subdomain.localhost/error';
+      });
+
+      describe('healthy', function() {
+        it('should see a passing test', function(done) {
+          browser.visit(checksURL, function() {
+            browser.assert.text('h1', 'Passed');
+            browser.assert.text('.passed li:nth-of-type(4)', /redirect \d[.\d]* ms/);
+            done();
+          });
+        });
+
+      });
+
+      describe('failing', function() {
+        before(function() {
+          server.locals.error = true;
+        });
+
+        it('should see a failing test', function(done) {
+          browser.visit(checksURL, function() {
+            browser.assert.text('h1', 'FailedPassed');
+            browser.assert.text('.failed li:nth-of-type(2)', /redirect => socket hang up \d[.\d]* ms/);
+            done();
+          });
+        });
+
+        after(function() {
+          server.locals.error = false;
+        });
+      });
+
+      after(function() {
+        server.locals.redirect = false;
+      });
+    });
+
+    describe('to a different domain', function() {
+      before(function() {
+        server.locals.redirect = 'https://www.google.com';
+      });
+
+      it('should see a passing test', function(done) {
+        browser.visit(checksURL, function() {
+          browser.assert.text('h1', 'Passed');
+          browser.assert.text('.passed li:nth-of-type(4)', /redirect \d[.\d]* ms/);
+          done();
+        });
+      });
+
+      after(function() {
+        server.locals.redirect = false;
+      });
+    });
   });
 
 
