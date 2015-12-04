@@ -75,6 +75,24 @@ describe('User runs checks', function() {
         server.locals.error    = false;
       });
     });
+
+    describe('loop', function() {
+      before(function() {
+        server.locals.redirect = '/redirect';
+      });
+
+      it('should see a failed test', function(done) {
+        browser.visit(checksURL, function() {
+          browser.assert.text('h1', 'FailedPassed');
+          browser.assert.text('.failed li:nth-of-type(1)', /redirect => too many redirects \d[.\d]* ms/);
+          done();
+        });
+      });
+
+      after(function() {
+        server.locals.redirect = false;
+      });
+    });
   });
 
 
