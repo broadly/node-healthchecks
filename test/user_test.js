@@ -84,7 +84,7 @@ describe('User runs checks', function() {
       it('should see a failed test', function(done) {
         browser.visit(checksURL, function() {
           browser.assert.text('h1', 'FailedPassed');
-          browser.assert.text('.failed li:nth-of-type(1)', /redirect => too many redirects \d[.\d]* ms/);
+          browser.assert.text('.failed li:nth-of-type(1)', /redirect => too many redirects \d[.\d]* .s/);
           done();
         });
       });
