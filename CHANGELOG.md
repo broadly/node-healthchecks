@@ -1,3 +1,12 @@
+## unreleased
+
+FIXED always run checks against `localAddress` and `localPort`
+
+FIXED checking subdomains works again
+
+CHANGED dropped short-lived support for SSL
+
+
 ## Version 1.6.1  2015-11-09
 
 FIXED follow redirects when performing checks
