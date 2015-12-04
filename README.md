@@ -106,10 +106,10 @@ to add access control, or add this feature and send us a pull request.
 You can initialize the middleware with the checks file name, or with an object
 containing the following options:
 
-`filename` -- The name of the checks file
-`onFailed` -- Called with array of failed checks
-`timeout`  -- Timeout slow responses
-`strictSSL` -- Defaults to true, false allows use of self-signed certificates for development
+* `filename`  -- The name of the checks file
+* `onFailed`  -- Called with array of failed checks
+* `timeout`   -- Timeout slow responses
+* `strictSSL` -- Defaults to true, false allows use of self-signed certificates for development
 
 You can specify the timeout in milliseconds or as a string, e.g. "3s" for 3
 seconds.
@@ -117,16 +117,16 @@ seconds.
 Each failed check reported to `onFailed` is an object with the following
 properties:
 
-`url`         -- The absolute URL
-`reason`      -- One of 'error', 'timeout', 'statusCode' or 'body'
-`error`       -- Connection or timeout error
-`timeout`     -- True if failed due to timeout
-`statusCode`  -- HTTP status code (if no error)
-`body`        -- Response body
+* `url`         -- The absolute URL
+* `reason`      -- One of `'error'`, `'timeout'`, `'statusCode'` or `'body'`
+* `error`       -- Connection or timeout error
+* `timeout`     -- True if failed due to timeout
+* `statusCode`  -- HTTP status code (if no error)
+* `body`        -- Response body
 
 For convenience, the value of the `reason` property is the name of one of the
 other properties.  Also, when you call `toString()` you get a URL with the
-reason, e.g. "http://example.com => statusCode".
+reason, e.g. `"http://example.com => statusCode"`.
 
 For example:
 
