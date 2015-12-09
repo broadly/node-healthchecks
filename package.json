@@ -1,6 +1,6 @@
 {
   "name": "healthchecks",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "engines": {
     "node": ">=4.0.0"
   },

@@ -1,3 +1,8 @@
+## Version 1.7.1  2015-12-09
+
+FIXED erroneous package pushed to npm
+
+
 ## Version 1.7.0  2015-12-09
 
 FIXED always run checks against `localAddress` and `localPort`
