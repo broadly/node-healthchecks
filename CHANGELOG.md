@@ -1,10 +1,12 @@
-## unreleased
+## Version 1.7.0  2015-12-09
 
 FIXED always run checks against `localAddress` and `localPort`
 
 FIXED checking subdomains works again
 
 CHANGED dropped short-lived support for SSL
+
+CHANGED follow up to 10 redirects
 
 
 ## Version 1.6.1  2015-11-09
