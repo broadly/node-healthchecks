@@ -6,6 +6,7 @@ const Path          = require('path');
 const server = express();
 module.exports = server;
 
+server.enable('trust proxy');
 
 // We have two test suites that want to run the same test server.
 //
@@ -77,4 +78,12 @@ server.get('/subdomain', function(req, res) {
     res.status(200).send('');
   else
     res.status(404).send('');
+});
+
+// Test HTTPS
+server.get('/ssl-required', function(req, res) {
+  if (req.protocol === 'https')
+    res.status(200).send('');
+  else
+    res.status(403).send('');
 });

@@ -25,6 +25,7 @@ describe('User runs checks', function() {
         browser.assert.text('.passed li:nth-of-type(4)', /redirect \d[.\d]* ms/);
         browser.assert.text('.passed li:nth-of-type(5)', /status \d[.\d]* ms/);
         browser.assert.text('.passed li:nth-of-type(6)', /timeout \d[.\d]* ms/);
+        browser.assert.text('.passed li:nth-of-type(7)', /https:\/\/localhost\/ssl-required \d[.\d]* ms/);
         done();
       });
     });
@@ -65,7 +66,7 @@ describe('User runs checks', function() {
           browser.assert.text('h1', 'FailedPassed');
           browser.assert.elements('.failed li', 2);
           browser.assert.text('.failed li:nth-of-type(2)', /redirect => socket hang up \d[.\d]* ms/);
-          browser.assert.elements('.passed li', 4);
+          browser.assert.elements('.passed li', 5);
           done();
         });
       });
@@ -150,6 +151,24 @@ describe('User runs checks', function() {
         server.locals.redirect = false;
       });
     });
+
+    describe('to HTTPS page', function() {
+      before(function() {
+        server.locals.redirect = 'https://localhost/ssl-required';
+      });
+
+      it('should see a passing test', function(done) {
+        browser.visit(checksURL, function() {
+          browser.assert.text('h1', 'Passed');
+          browser.assert.text('.passed li:nth-of-type(4)', /redirect \d[.\d]* ms/);
+          done();
+        });
+      });
+
+      after(function() {
+        server.locals.redirect = false;
+      });
+    });
   });
 
 
@@ -163,7 +182,7 @@ describe('User runs checks', function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
         browser.assert.text('.failed li:nth-of-type(1)', /error => socket hang up \d[.\d]* ms/);
-        browser.assert.elements('.passed li', 5);
+        browser.assert.elements('.passed li', 6);
         done();
       });
     });
@@ -186,7 +205,7 @@ describe('User runs checks', function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
         browser.assert.text('.failed li:nth-of-type(1)', /timeout => timeout \d[.\d]* s/);
-        browser.assert.elements('.passed li', 5);
+        browser.assert.elements('.passed li', 6);
         done();
       });
     });
@@ -207,7 +226,7 @@ describe('User runs checks', function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
         browser.assert.text('.failed li:nth-of-type(1)', /status => 400 \d[.\d]* ms/);
-        browser.assert.elements('.passed li', 5);
+        browser.assert.elements('.passed li', 6);
         done();
       });
     });
@@ -228,7 +247,7 @@ describe('User runs checks', function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
         browser.assert.text('.failed li:nth-of-type(1)', /expected => body \d[.\d]* ms/);
-        browser.assert.elements('.passed li', 5);
+        browser.assert.elements('.passed li', 6);
         done();
       });
     });
@@ -249,7 +268,7 @@ describe('User runs checks', function() {
         browser.assert.text('h1', 'FailedPassed');
         browser.assert.elements('.failed li', 1);
         browser.assert.text('.failed li:nth-of-type(1)', /\/\/admin.localhost\/subdomain => 404 \d[.\d]* ms/);
-        browser.assert.elements('.passed li', 5);
+        browser.assert.elements('.passed li', 6);
         done();
       });
     });
