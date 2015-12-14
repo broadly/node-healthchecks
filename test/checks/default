@@ -19,5 +19,8 @@
 # Test a subdomain
 //admin.localhost/subdomain
 
+# Test HTTPS requests
+https://localhost/ssl-required
+
 # Used by Dokku, ignored by healthchecks
 WAIT=5
