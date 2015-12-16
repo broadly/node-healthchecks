@@ -1,3 +1,8 @@
+## Version 1.7.2  2015-12-15
+
+ADDED checks for HTTPS URLs now set `X-Forwarded-Proto`
+
+
 ## Version 1.7.1  2015-12-09
 
 FIXED erroneous package pushed to npm
