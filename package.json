@@ -10,14 +10,14 @@
   "main": "lib/healthchecks",
   "dependencies": {
     "debug": "^2.2.0",
-    "handlebars": "^3.0",
+    "handlebars": "^4.0.5",
     "ms": "^0.7.1",
     "pretty-hrtime": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^0.21",
+    "eslint": "^1.10.3",
     "express": "^4.12",
-    "mocha": "^2.2",
+    "mocha": "^2.3.4",
     "request": "^2.67.0",
     "zombie": "^4.0"
   },
