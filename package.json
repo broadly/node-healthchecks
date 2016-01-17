@@ -5,6 +5,7 @@
     "node": ">=4.0.0"
   },
   "scripts": {
+    "lint": "eslint .",
     "test": "mocha"
   },
   "main": "lib/healthchecks",

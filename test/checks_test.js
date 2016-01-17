@@ -1,3 +1,4 @@
+'use strict';
 const assert        = require('assert');
 const healthchecks  = require('..');
 const Path          = require('path');
@@ -17,7 +18,7 @@ describe('Empty checks file', function() {
   it('should receive response with status 404', function(done) {
     request('http://localhost:3000/_healthchecks.empty', function(error, response) {
       assert.equal(response.statusCode, 404);
-      done();
+      done(error);
     });
   });
 
