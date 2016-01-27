@@ -1,3 +1,4 @@
+'use strict';
 const assert  = require('assert');
 const ms      = require('ms');
 const request = require('request');

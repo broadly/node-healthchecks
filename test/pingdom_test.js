@@ -1,3 +1,4 @@
+'use strict';
 const assert  = require('assert');
 const ms      = require('ms');
 const request = require('request');
@@ -19,7 +20,7 @@ describe('Pingdom run checks', function() {
     it('should receive response with status 200', function(done) {
       request(checksURL, function(error, response) {
         assert.equal(response.statusCode, 200);
-        done();
+        done(error);
       });
     });
   });
@@ -33,7 +34,7 @@ describe('Pingdom run checks', function() {
     it('should receive response with status 500', function(done) {
       request(checksURL, function(error, response) {
         assert.equal(response.statusCode, 500);
-        done();
+        done(error);
       });
     });
 
@@ -53,7 +54,7 @@ describe('Pingdom run checks', function() {
 
       request(checksURL, function(error, response) {
         assert.equal(response.statusCode, 500);
-        done();
+        done(error);
       });
     });
 
@@ -71,7 +72,7 @@ describe('Pingdom run checks', function() {
     it('should receive response with status 500', function(done) {
       request(checksURL, function(error, response) {
         assert.equal(response.statusCode, 500);
-        done();
+        done(error);
       });
     });
 
@@ -89,7 +90,7 @@ describe('Pingdom run checks', function() {
     it('should receive response with status 500', function(done) {
       request(checksURL, function(error, response) {
         assert.equal(response.statusCode, 500);
-        done();
+        done(error);
       });
     });
 
@@ -107,7 +108,7 @@ describe('Pingdom run checks', function() {
     it('should receive response with status 500', function(done) {
       request(checksURL, function(error, response) {
         assert.equal(response.statusCode, 500);
-        done();
+        done(error);
       });
     });
 

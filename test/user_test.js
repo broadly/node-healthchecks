@@ -1,3 +1,4 @@
+'use strict';
 const Browser = require('zombie');
 const ms      = require('ms');
 const server  = require('./helpers/server');

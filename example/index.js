@@ -1,3 +1,4 @@
+/*eslint-disable */
 // To run this example:
 //
 //   DEBUG=healthchecks node example/index.js

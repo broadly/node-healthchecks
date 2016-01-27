@@ -1,3 +1,4 @@
+'use strict';
 const express       = require('express');
 const healthchecks  = require('../..');
 const Path          = require('path');
@@ -12,15 +13,16 @@ server.enable('trust proxy');
 //
 // Instead of calling listen() they call ready(), and get notified when the
 // server is ready to receive requests.  Server only started once.
-var listening = false;
+let listening = false;
 server.ready = function(callback) {
   if (listening)
     setImmediate(callback);
-  else
+  else {
     server.listen(3000, function() {
       listening = true;
       callback();
     });
+  }
 };
 
 
