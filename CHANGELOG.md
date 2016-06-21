@@ -1,3 +1,8 @@
+## Version 1.7.3  2016-06-21
+
+CHANGED code cleanups and linting
+
+
 ## Version 1.7.2  2015-12-15
 
 ADDED checks for HTTPS URLs now set `X-Forwarded-Proto`
